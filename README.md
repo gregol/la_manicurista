@@ -1,6 +1,6 @@
-# TypeScript Next.js example
+# La Manicurista app with React, Next.js and TypeScript
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+This is an architecture proposal for La Manicurista WEB app.
 
 ## Deploy your own
 
@@ -8,34 +8,44 @@ Deploy the example using [Vercel](https://vercel.com):
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/vercel/next.js/tree/canary/examples/with-typescript)
 
-## How to use it?
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-# or
-yarn create next-app --example with-typescript with-typescript-app
-```
-
 Deploy it to the cloud with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
 
-## Notes
+## Run on local machine
 
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
+# To install all packages, run this comand, on the project forlder.
 
-```
-npm install --save-dev typescript
-```
+`yarn`
 
-To enable TypeScript's features, we install the type declarations for React and Node.
+# To run on local machine run this comand.
 
-```
-npm install --save-dev @types/react @types/react-dom @types/node
-```
+`yarn dev`
 
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
+# Go to your Browser (Like Brave or Chrome) and write.
 
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
+http://loacalhost:3000
 
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+# Arquitectura pnateada.
+
+Utilice Next JS por la potencia que est framework junto a React le da a las plataformar front-end, Next Js tiene todas las ventajas de Server side Rendering
+es altamente excalable y muy amigable para los desarrolladores.
+
+React, NextJS y TypeScript.
+
+# La estructura.
+
+src
+|
+|\_components (Contiene Todos los componentes que se reutilizaran en la aplicacion, EJ Buttons, Layouts etc)
+|\_conatiner (contiene Todos los modulos de la aplicacion, Ej: Users, Cart, Products etc)
+|\_hooks (Contendra todos los hooks (para react especificamente), reutilizables en la app)
+|\_i18n (Toda aplicacion excalable debe estar pensada para soportar mas de un idioma, aca debe ir todos los mensajes en los diferentes lenguajes)
+|\_interfaces (Contiene las definiciones de lasinterfaces (Para tipos de datos complejos en TypeScript), ejemplo, User, Productos. Orders, etc)
+|\_site-setting (Configuracion de la aplicacion, que no necesiten de muschos cambios en el futuro, ejemplo Nombe, redes sociales, slogan, etc).
+|\_pages (El core de Next necesita esta carpeta, y es donde se almacena los controladores frontales de la aplicacion, ejemplo, index (pagina principal), about_us, products, orders, users etc)
+|\_store (Pensando en usar redux, aca estaran las deficniciones para el manejo de los stados con Redux )
+| |\_User (Esta carpeta contendra, UserActions.ts, UserReducer.ts, UserType.ts etc)
+|\_utils (Utilidades que puedan ser de provecho par toda la plataform, EJ. Funciona pra crear Slugs, Validadores de correo electronico etc )
+
+Es posible crear otras carpetas conforme crezca el proyecto, perocon esta estructura inicial la plataforma puede crecer sin problema.
+Ademas dependiendo de la necesitada se puede utilizar el paradigma de Micro-Frontend (Similar a los micro-services) pero apr afrontends, lo buenos es
+que NextJs y React soportan este pradigma aunado a los mono-repo. (https://dev.to/abhinavnigam2207/an-approach-to-micro-frontend-architecture-mvp-with-nextjs-2l84)

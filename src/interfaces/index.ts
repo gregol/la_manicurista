@@ -8,3 +8,17 @@ export type User = {
   id: number
   name: string
 }
+
+
+interface SocialNetworks {
+  instagramLink: string;
+  facebookLink: string;
+  linkedinLink: string;
+  twitterLink: string;
+}
+
+export type SiteSetting = {
+  enterpriseName: string,
+  aboutUs:  string,
+  socialNetworks: SocialNetworks
+}
